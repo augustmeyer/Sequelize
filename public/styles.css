@@ -1,16 +1,21 @@
-.html {
-    background: blue;
+html {
+    background:burlywood;
 }
 
-.h1{
-    font-size:large;
+h1{
+    font-size: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 100px;
+    text-align: center;
 }
+
 .wrapper {
-    justify-content: center;
-
-}
-.diningTable {
-    color:cadetblue;
     align-content: center;
+}
+
+.table {
+    margin-right: 50px;
 
 }
