@@ -1,0 +1,16 @@
+.html {
+    background: blue;
+}
+
+.h1{
+    font-size:large;
+}
+.wrapper {
+    justify-content: center;
+
+}
+.diningTable {
+    color:cadetblue;
+    align-content: center;
+
+}
