@@ -1,6 +1,13 @@
-async function callAPI() {
-  const request = await fetch('https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json');
-  const data = await request.json()
-} 
+async function fetchHalls() {
+  const table = document.querySelector('.table');
+  
+  const request = await fetch('/api/dining');
+  const data = await request.json();
+  const halls = [];
 
-window.onload = callAPI;
+
+async function windowActions() {
+    fetchHalls();
+  }
+  
+window.onload = windowActions;
