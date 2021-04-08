@@ -5,6 +5,9 @@ async function fetchAPI() {
   const data = await request.json();
   const array = [];
 
+  const request2 = await fectch('/api/meals');
+  const mealData = await request2.json();
+
   array.push(data['data']);
 
   function createDiningTable () {
