@@ -36,13 +36,12 @@ async function fetchAPI() {
   createDiningTable();
 }
 
-const randomNumberArray = [];
-while (randomNumberArray.length < 10) {
-  const r = Math.floor(Math.random() * 46) + 1;
-  if (randomNumberArray.indexOf(r) === -1) randomNumberArray.push(r);
-}
-
 async function makeChart() {
+  const randomNumberArray = [];
+  while (randomNumberArray.length < 10) {
+    const r = Math.floor(Math.random() * 45) + 1;
+    if (randomNumberArray.indexOf(r) === -1) randomNumberArray.push(r);
+  }
   const mealArray = [];
   const macrosArray = [];
 
@@ -56,7 +55,7 @@ async function makeChart() {
 
   macrosArray.push(data2);
 
-  console.log(mealArray[0][0]['meal_name']);
+  console.log( mealArray[0][randomNumberArray[0]]['meal_name']);
 
   const chart = new CanvasJS.Chart('chartContainer', {
     animationEnabled: true,
@@ -72,84 +71,124 @@ async function makeChart() {
     },
     data: [{
       type: 'stackedBar',
-      name: 'Meals',
+      name: 'Calories',
       showInLegend: 'true',
-      xValueFormatString: 'DD, MMM',
-      yValueFormatString: '$#,##0',
       dataPoints: [
-        { x: new Date(2017, 0, 30), y: 56 },
-        { x: new Date(2017, 0, 31), y: 45 },
-        { x: new Date(2017, 1, 1), y: 71 },
-        { x: new Date(2017, 1, 2), y: 41 },
-        { x: new Date(2017, 1, 3), y: 60 },
-        { x: new Date(2017, 1, 4), y: 75 },
-        { x: new Date(2017, 1, 5), y: 98 }
+        { label: mealArray[0][randomNumberArray[0]]['meal_name'], y: macrosArray[0][randomNumberArray[0]]['calories'] },
+        { label: mealArray[0][randomNumberArray[1]]['meal_name'], y: macrosArray[0][randomNumberArray[1]]['calories'] },
+        { label: mealArray[0][randomNumberArray[2]]['meal_name'], y: macrosArray[0][randomNumberArray[2]]['calories'] },
+        { label: mealArray[0][randomNumberArray[3]]['meal_name'], y: macrosArray[0][randomNumberArray[3]]['calories'] },
+        { label: mealArray[0][randomNumberArray[4]]['meal_name'], y: macrosArray[0][randomNumberArray[4]]['calories'] },
+        { label: mealArray[0][randomNumberArray[5]]['meal_name'], y: macrosArray[0][randomNumberArray[5]]['calories'] },
+        { label: mealArray[0][randomNumberArray[6]]['meal_name'], y: macrosArray[0][randomNumberArray[6]]['calories'] },
+        { label: mealArray[0][randomNumberArray[7]]['meal_name'], y: macrosArray[0][randomNumberArray[7]]['calories'] },
+        { label: mealArray[0][randomNumberArray[8]]['meal_name'], y: macrosArray[0][randomNumberArray[8]]['calories'] },
+        { label: mealArray[0][randomNumberArray[9]]['meal_name'], y: macrosArray[0][randomNumberArray[9]]['calories'] }
       ]
     },
     {
       type: 'stackedBar',
-      name: 'Snacks',
+      name: 'Serving Size',
       showInLegend: 'true',
-      xValueFormatString: 'DD, MMM',
-      yValueFormatString: '$#,##0',
       dataPoints: [
-        { x: new Date(2017, 0, 30), y: 86 },
-        { x: new Date(2017, 0, 31), y: 95 },
-        { x: new Date(2017, 1, 1), y: 71 },
-        { x: new Date(2017, 1, 2), y: 58 },
-        { x: new Date(2017, 1, 3), y: 60 },
-        { x: new Date(2017, 1, 4), y: 65 },
-        { x: new Date(2017, 1, 5), y: 89 }
+        { label: mealArray[0][randomNumberArray[0]]['meal_name'], y: macrosArray[0][randomNumberArray[0]]['serving_size'] },
+        { label: mealArray[0][randomNumberArray[1]]['meal_name'], y: macrosArray[0][randomNumberArray[1]]['serving_size'] },
+        { label: mealArray[0][randomNumberArray[2]]['meal_name'], y: macrosArray[0][randomNumberArray[2]]['serving_size'] },
+        { label: mealArray[0][randomNumberArray[3]]['meal_name'], y: macrosArray[0][randomNumberArray[3]]['serving_size'] },
+        { label: mealArray[0][randomNumberArray[4]]['meal_name'], y: macrosArray[0][randomNumberArray[4]]['serving_size'] },
+        { label: mealArray[0][randomNumberArray[5]]['meal_name'], y: macrosArray[0][randomNumberArray[5]]['serving_size'] },
+        { label: mealArray[0][randomNumberArray[6]]['meal_name'], y: macrosArray[0][randomNumberArray[6]]['serving_size'] },
+        { label: mealArray[0][randomNumberArray[7]]['meal_name'], y: macrosArray[0][randomNumberArray[7]]['serving_size'] },
+        { label: mealArray[0][randomNumberArray[8]]['meal_name'], y: macrosArray[0][randomNumberArray[8]]['serving_size'] },
+        { label: mealArray[0][randomNumberArray[9]]['meal_name'], y: macrosArray[0][randomNumberArray[9]]['serving_size'] }
       ]
     },
     {
       type: 'stackedBar',
-      name: 'Drinks',
+      name: 'Cholesterol',
       showInLegend: 'true',
-      xValueFormatString: 'DD, MMM',
-      yValueFormatString: '$#,##0',
       dataPoints: [
-        { x: new Date(2017, 0, 30), y: 48 },
-        { x: new Date(2017, 0, 31), y: 45 },
-        { x: new Date(2017, 1, 1), y: 41 },
-        { x: new Date(2017, 1, 2), y: 55 },
-        { x: new Date(2017, 1, 3), y: 80 },
-        { x: new Date(2017, 1, 4), y: 85 },
-        { x: new Date(2017, 1, 5), y: 83 }
+        { label: mealArray[0][randomNumberArray[0]]['meal_name'], y: macrosArray[0][randomNumberArray[0]]['cholesterol'] },
+        { label: mealArray[0][randomNumberArray[1]]['meal_name'], y: macrosArray[0][randomNumberArray[1]]['cholesterol'] },
+        { label: mealArray[0][randomNumberArray[2]]['meal_name'], y: macrosArray[0][randomNumberArray[2]]['cholesterol'] },
+        { label: mealArray[0][randomNumberArray[3]]['meal_name'], y: macrosArray[0][randomNumberArray[3]]['cholesterol'] },
+        { label: mealArray[0][randomNumberArray[4]]['meal_name'], y: macrosArray[0][randomNumberArray[4]]['cholesterol'] },
+        { label: mealArray[0][randomNumberArray[5]]['meal_name'], y: macrosArray[0][randomNumberArray[5]]['cholesterol'] },
+        { label: mealArray[0][randomNumberArray[6]]['meal_name'], y: macrosArray[0][randomNumberArray[6]]['cholesterol'] },
+        { label: mealArray[0][randomNumberArray[7]]['meal_name'], y: macrosArray[0][randomNumberArray[7]]['cholesterol'] },
+        { label: mealArray[0][randomNumberArray[8]]['meal_name'], y: macrosArray[0][randomNumberArray[8]]['cholesterol'] },
+        { label: mealArray[0][randomNumberArray[9]]['meal_name'], y: macrosArray[0][randomNumberArray[9]]['cholesterol'] }
       ]
     },
     {
       type: 'stackedBar',
-      name: 'Dessert',
+      name: 'Sodium',
       showInLegend: 'true',
-      xValueFormatString: 'DD, MMM',
-      yValueFormatString: '$#,##0',
       dataPoints: [
-        { x: new Date(2017, 0, 30), y: 61 },
-        { x: new Date(2017, 0, 31), y: 55 },
-        { x: new Date(2017, 1, 1), y: 61 },
-        { x: new Date(2017, 1, 2), y: 75 },
-        { x: new Date(2017, 1, 3), y: 80 },
-        { x: new Date(2017, 1, 4), y: 85 },
-        { x: new Date(2017, 1, 5), y: 105 }
+        { label: mealArray[0][randomNumberArray[0]]['meal_name'], y: macrosArray[0][randomNumberArray[0]]['sodium'] },
+        { label: mealArray[0][randomNumberArray[1]]['meal_name'], y: macrosArray[0][randomNumberArray[1]]['sodium'] },
+        { label: mealArray[0][randomNumberArray[2]]['meal_name'], y: macrosArray[0][randomNumberArray[2]]['sodium'] },
+        { label: mealArray[0][randomNumberArray[3]]['meal_name'], y: macrosArray[0][randomNumberArray[3]]['sodium'] },
+        { label: mealArray[0][randomNumberArray[4]]['meal_name'], y: macrosArray[0][randomNumberArray[4]]['sodium'] },
+        { label: mealArray[0][randomNumberArray[5]]['meal_name'], y: macrosArray[0][randomNumberArray[5]]['sodium'] },
+        { label: mealArray[0][randomNumberArray[6]]['meal_name'], y: macrosArray[0][randomNumberArray[6]]['sodium'] },
+        { label: mealArray[0][randomNumberArray[7]]['meal_name'], y: macrosArray[0][randomNumberArray[7]]['sodium'] },
+        { label: mealArray[0][randomNumberArray[8]]['meal_name'], y: macrosArray[0][randomNumberArray[8]]['sodium'] },
+        { label: mealArray[0][randomNumberArray[9]]['meal_name'], y: macrosArray[0][randomNumberArray[9]]['sodium'] }
       ]
     },
     {
       type: 'stackedBar',
-      name: 'Takeaway',
+      name: 'Carbs',
       showInLegend: 'true',
-      xValueFormatString: 'DD, MMM',
-      yValueFormatString: '$#,##0',
       dataPoints: [
-        { x: new Date(2017, 0, 30), y: 52 },
-        { x: new Date(2017, 0, 31), y: 55 },
-        { x: new Date(2017, 1, 1), y: 20 },
-        { x: new Date(2017, 1, 2), y: 35 },
-        { x: new Date(2017, 1, 3), y: 30 },
-        { x: new Date(2017, 1, 4), y: 45 },
-        { x: new Date(2017, 1, 5), y: 25 }
+        { label: mealArray[0][randomNumberArray[0]]['meal_name'], y: macrosArray[0][randomNumberArray[0]]['carbs'] },
+        { label: mealArray[0][randomNumberArray[1]]['meal_name'], y: macrosArray[0][randomNumberArray[1]]['carbs'] },
+        { label: mealArray[0][randomNumberArray[2]]['meal_name'], y: macrosArray[0][randomNumberArray[2]]['carbs'] },
+        { label: mealArray[0][randomNumberArray[3]]['meal_name'], y: macrosArray[0][randomNumberArray[3]]['carbs'] },
+        { label: mealArray[0][randomNumberArray[4]]['meal_name'], y: macrosArray[0][randomNumberArray[4]]['carbs'] },
+        { label: mealArray[0][randomNumberArray[5]]['meal_name'], y: macrosArray[0][randomNumberArray[5]]['carbs'] },
+        { label: mealArray[0][randomNumberArray[6]]['meal_name'], y: macrosArray[0][randomNumberArray[6]]['carbs'] },
+        { label: mealArray[0][randomNumberArray[7]]['meal_name'], y: macrosArray[0][randomNumberArray[7]]['carbs'] },
+        { label: mealArray[0][randomNumberArray[8]]['meal_name'], y: macrosArray[0][randomNumberArray[8]]['carbs'] },
+        { label: mealArray[0][randomNumberArray[9]]['meal_name'], y: macrosArray[0][randomNumberArray[9]]['carbs'] }
+      ]
+    }, 
+    {
+      type: 'stackedBar',
+      name: 'Protein',
+      showInLegend: 'true',
+      dataPoints: [
+        { label: mealArray[0][randomNumberArray[0]]['meal_name'], y: macrosArray[0][randomNumberArray[0]]['protein'] },
+        { label: mealArray[0][randomNumberArray[1]]['meal_name'], y: macrosArray[0][randomNumberArray[1]]['protein'] },
+        { label: mealArray[0][randomNumberArray[2]]['meal_name'], y: macrosArray[0][randomNumberArray[2]]['protein'] },
+        { label: mealArray[0][randomNumberArray[3]]['meal_name'], y: macrosArray[0][randomNumberArray[3]]['protein'] },
+        { label: mealArray[0][randomNumberArray[4]]['meal_name'], y: macrosArray[0][randomNumberArray[4]]['protein'] },
+        { label: mealArray[0][randomNumberArray[5]]['meal_name'], y: macrosArray[0][randomNumberArray[5]]['protein'] },
+        { label: mealArray[0][randomNumberArray[6]]['meal_name'], y: macrosArray[0][randomNumberArray[6]]['protein'] },
+        { label: mealArray[0][randomNumberArray[7]]['meal_name'], y: macrosArray[0][randomNumberArray[7]]['protein'] },
+        { label: mealArray[0][randomNumberArray[8]]['meal_name'], y: macrosArray[0][randomNumberArray[8]]['protein'] },
+        { label: mealArray[0][randomNumberArray[9]]['meal_name'], y: macrosArray[0][randomNumberArray[9]]['protein'] }
+      ]
+    },
+    {
+      type: 'stackedBar',
+      name: 'Fats',
+      showInLegend: 'true',
+      dataPoints: [
+        { label: mealArray[0][randomNumberArray[0]]['meal_name'], y: macrosArray[0][randomNumberArray[0]]['fat'] },
+        { label: mealArray[0][randomNumberArray[1]]['meal_name'], y: macrosArray[0][randomNumberArray[1]]['fat'] },
+        { label: mealArray[0][randomNumberArray[2]]['meal_name'], y: macrosArray[0][randomNumberArray[2]]['fat'] },
+        { label: mealArray[0][randomNumberArray[3]]['meal_name'], y: macrosArray[0][randomNumberArray[3]]['fat'] },
+        { label: mealArray[0][randomNumberArray[4]]['meal_name'], y: macrosArray[0][randomNumberArray[4]]['fat'] },
+        { label: mealArray[0][randomNumberArray[5]]['meal_name'], y: macrosArray[0][randomNumberArray[5]]['fat'] },
+        { label: mealArray[0][randomNumberArray[6]]['meal_name'], y: macrosArray[0][randomNumberArray[6]]['fat'] },
+        { label: mealArray[0][randomNumberArray[7]]['meal_name'], y: macrosArray[0][randomNumberArray[7]]['fat'] },
+        { label: mealArray[0][randomNumberArray[8]]['meal_name'], y: macrosArray[0][randomNumberArray[8]]['fat'] },
+        { label: mealArray[0][randomNumberArray[9]]['meal_name'], y: macrosArray[0][randomNumberArray[9]]['fat'] }
       ]
     }]
+
   });
   chart.render();
   
