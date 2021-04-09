@@ -36,28 +36,48 @@ async function fetchAPI() {
   createDiningTable();
 }
 
-async function meals() {
+const randomNumber = Math.random();
+let mealArray = [];
+let macrosArray = [];
+
+async function mealsArray() {
   const request2 = await fetch('/api/meals');
-  const mealData = await request2.json();
-  return mealData;
+  const data = await request2.json();
+  const array = [];
+
+  array.push(data);
+  const x = 0;
+
+  for (i in mealArray) {
+    returnArray[x] = mealArray[i*randomNumber];
+    x+1;
+  }
+
+  return array;
 }
 
-async function macros() {
+async function macroArray() {
   const request3 = await fetch('/api/macros');
-  const macrosData = await request3.json();
-  return macrosData;
+  const data = await request3.json();
+  const returnArray2 = [];
+
+  returnArray2.push(data);
+
+  for (i in mealArray) {
+    returnArray2[i] = mealArray[i*randomNumber+1];
+  }
+
+  return returnArray2;
 }
 
-const chart = new CanvasJS.Chart("chartContainer", {
+mealArray = mealsArray();
+macrosArray = macroArray();
+console.log(mealArray);
+
+const chart = new CanvasJS.Chart('chartContainer', {
   animationEnabled: true,
-  title:{
+  title: {
     text: 'Meals and Macros'
-  },
-  axisX: {
-    valueFormatString: 'DDD'
-  },
-  axisY: {
-    prefix: '$'
   },
   toolTip: {
     shared: true
@@ -160,8 +180,6 @@ function toggleDataSeries(e) {
 }
 async function windowOnload() {
   fetchAPI();
-  meals();
-  macros();
 } 
 
 window.onload = windowOnload;
